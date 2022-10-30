@@ -1,0 +1,41 @@
+<!--  This file is app/views/movies/index.html.erb -->
+<h2>Activity Board</h2>
+
+
+<table class="table table-striped col-md-12" id="activities">
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Organizer</th>
+      <th>Max Capcity</th>
+      <th>Current Number of Participants</th>
+      <th>Category</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td>
+          <%= activity.event_name %>
+        </td>
+        <td>
+          <%= activity.organizer %>
+        </td>
+        <td>
+          <%= activity.max_size %>
+        </td>
+        <td>
+          <%= activity.current_size %>
+        </td>
+        <td>
+          <%= activity.category %>
+        </td>
+        <td>
+          <%= activity.date %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add new activity', new_activity_path, :class => 'btn btn-primary' %>
