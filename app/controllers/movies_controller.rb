@@ -31,11 +31,6 @@ class MoviesController < ApplicationController
       redirect_to movies_path(:ratings => Hash[session[:ratings].collect{|i|[i, "1"]}], :sort_by => @sort_by) and return
 
     end
-   
-
-    #session[:ratings] = @ratings
-    #session[:sort_by] = @sort_by
-    #redirect_to movies_path(:ratings => @ratings_to_show, :sort_by => @sort_by)
 
     if @sort_by == 'release_date'
       @date_style = 'bg-warning hilite'
@@ -43,12 +38,7 @@ class MoviesController < ApplicationController
     if @sort_by == 'title'
       @title_style = 'bg-warning hilite'
     end
-    
 
-    
-
-    
-    
   end
 
   def new
