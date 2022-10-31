@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_action :force_index_redirect, only: [:index]
 
       def show
         id = params[:id] 
@@ -6,37 +7,13 @@ class ActivitiesController < ApplicationController
       end
 
       def index
-        @all_categories = Activity.all_categories
-    
-        
-        @sort_by = params[:sort_by]||session[:sort_by]||'date'
-        session[:sort_by] = @sort_by
-    
-        if params[:categories].nil? && session[:categories].nil?
-          @activities = Activity.all.order(@sort_by)	    
-          @category_to_show = Hash[Activity.all_categories.collect{|i|[i, "1"]}]
-          session[:categories] = Activity.all_categories
-          redirect_to activities_path(:category => @category_to_show, :sort_by => 'date') and return
-    
-        elsif !params[:categories].nil?
-          @activities = Activity.with_categories(params[:categories].keys).order(@sort_by)
-          @category_to_show = params[:categories]
-          session[:categories] = params[:categories].keys
-    
-        else #use session
-          @activities = Activity.with_categories(session[:categories]).order(@sort_by)
-          @category_to_show = Hash[session[:categories].collect{|i|[i, "1"]}]
-          redirect_to activities_path(:categories => Hash[session[:categories].collect{|i|[i, "1"]}], :sort_by => @sort_by) and return
-    
-        end
-    
-        if @sort_by == 'date'
-          @date_style = 'bg-warning hilite'
-        end
-        if @sort_by == 'location'
-          @title_style = 'bg-warning hilite'
-        end
-    
+        @all_ratings = Movie.all_ratings
+        @movies = Movie.with_ratings(ratings_list, sort_by)
+        @ratings_to_show_hash = ratings_hash
+        @sort_by = sort_by
+        # remember the correct settings for next time
+        session['ratings'] = ratings_list
+        session['sort_by'] = @sort_by
       end
 
 
@@ -76,5 +53,25 @@ class ActivitiesController < ApplicationController
       def activity_params
         params.require(:activity).permit(:event_name, :location, :description, :date, :max_size, :current_size, :organizer, :category)
       end 
+
+      def force_index_redirect
+        if !params.key?(:ratings) || !params.key?(:sort_by)
+          flash.keep
+          url = movies_path(sort_by: sort_by, ratings: ratings_hash)
+          redirect_to url
+        end
+      end
+
+      def ratings_list
+        params[:ratings]&.keys || session[:ratings] || Movie.all_ratings
+      end
+
+      def ratings_hash
+        Hash[ratings_list.collect { |item| [item, "1"] }]
+      end
+
+      def sort_by
+        params[:sort_by] || session[:sort_by] || 'id'
+      end
 
 end
