@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :user_authenticate, only: [:show, :edit, :update, :destroy]
 
     def index
         if session[:user_id]
@@ -13,19 +14,15 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find session[:user_id]
-        if @user == nil
-            session[:user_id] = nil
-            redirect_to root_path
-        end
     end
 
     # Edit Profile
     def edit
-        @user = User.find params[:id]
+        @user = User.find session[:user_id]
       end
     
       def update
-        @user = User.find params[:id]
+        @user = User.find session[:user_id]
         @user.update_attributes!(user_params)
         flash[:notice] = "#{@user.user_name} was successfully updated."
         redirect_to user_path(@user)
@@ -40,8 +37,8 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to root_path
         else
-            render :new
             flash[:warning] = "Username is already taken."
+            redirect_to new_user_path
         end
     end
 
@@ -54,8 +51,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(session[:user_id])
         @user.destroy
-        session[:user_id] = nil
-        redirect_to root_path
+        logout
     end
 
     private
@@ -63,6 +59,19 @@ class UsersController < ApplicationController
     # This helps make clear which methods respond to requests, and which ones do not.
     def user_params
         params.require(:user).permit(:user_name, :first_name, :last_name, :password)
+    end
+
+    def user_authenticate
+        if session[:user_id] == nil
+            redirect_to new_session_path
+            return
+        end
+        user = User.find session[:user_id]
+        if user == nil
+            session[:user_id] = nil
+            redirect_to new_session_path
+            return
+        end
     end
 end
       

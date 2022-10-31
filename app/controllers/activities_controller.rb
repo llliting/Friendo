@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_action :user_authenticate
   before_action :force_index_redirect, only: [:index]
 
       def show
@@ -74,4 +75,15 @@ class ActivitiesController < ApplicationController
         params[:sort_by] || session[:sort_by] || 'id'
       end
 
+      def user_authenticate
+        if session[:user_id] == nil
+          redirect_to new_session_path
+          return
+        end
+        user = User.find session[:user_id]
+        if user == nil
+          redirect_to new_session_path
+          return
+        end
+      end
 end
