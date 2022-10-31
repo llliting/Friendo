@@ -24,17 +24,19 @@ gem 'tzinfo'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3', '1.3.11'
   gem 'byebug'
+  gem 'database_cleaner', '1.4.1'
+  gem 'capybara', '2.4.4'
+  gem 'launchy'
+  gem 'rspec-rails', '3.7.2'
+  gem 'ZenTest', '4.11.2'
+end
 
-  gem 'rspec-rails'
-  gem 'guard-rspec'
-
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.6'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels'
+  gem 'simplecov', :require => false
 end
 
 group :production do
