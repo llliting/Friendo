@@ -15,9 +15,8 @@ Rails.application.routes.draw do
   #   resources :products
   get 'users/logout', to: 'users#logout'
   resources :users
-  resources :movies
   resources :sessions
-  
+  resources :activities
   # Example resource route with options:
   #   resources :products do
   #     member do

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         if session[:user_id]
             @user = User.find session[:user_id]
             if @user != nil
-                redirect_to movies_path
+                redirect_to activities_path
                 return
             end
         end

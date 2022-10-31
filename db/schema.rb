@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20221031020723) do
 
+  create_table "activities", force: :cascade do |t|
+    t.string   "event_name"
+    t.string   "organizer"
+    t.integer  "max_size"
+    t.integer  "current_size"
+    t.text     "description"
+    t.string   "category"
+    t.datetime "date"
+    t.string   "location"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "rating"
