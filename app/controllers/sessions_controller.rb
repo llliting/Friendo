@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             redirect_to root_path
         else
             flash[:warning] = "Wrong password or username!"
-            render :new
+            redirect_to new_session_path
         end
     end
 
