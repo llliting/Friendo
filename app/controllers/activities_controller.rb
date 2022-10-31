@@ -7,12 +7,12 @@ class ActivitiesController < ApplicationController
       end
 
       def index
-        @all_ratings = Movie.all_ratings
-        @movies = Movie.with_ratings(ratings_list, sort_by)
-        @ratings_to_show_hash = ratings_hash
+        @all_categories = Activity.all_categories
+        @activities = Activity.with_categories(category_list, sort_by)
+        @categories_hash = categories_hash
         @sort_by = sort_by
         # remember the correct settings for next time
-        session['ratings'] = ratings_list
+        session['categories'] = category_list
         session['sort_by'] = @sort_by
       end
 
@@ -57,17 +57,17 @@ class ActivitiesController < ApplicationController
       def force_index_redirect
         if !params.key?(:ratings) || !params.key?(:sort_by)
           flash.keep
-          url = movies_path(sort_by: sort_by, ratings: ratings_hash)
+          url = activities_path(sort_by: sort_by, ratings: ratings_hash)
           redirect_to url
         end
       end
 
-      def ratings_list
-        params[:ratings]&.keys || session[:ratings] || Movie.all_ratings
+      def category_list
+        params[:categories]&.keys || session[:categories] || Activity.all_categories
       end
 
-      def ratings_hash
-        Hash[ratings_list.collect { |item| [item, "1"] }]
+      def categories_hash
+        Hash[category_list.collect { |item| [item, "1"] }]
       end
 
       def sort_by

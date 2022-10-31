@@ -3,11 +3,11 @@ class Activity < ActiveRecord::Base
 		['Arts', 'Entertainment', 'Education', 'Sports', 'Outdoor', 'Others']
 	end
 
-	def self.with_categories(category_list)
+	def self.with_categories(category_list, sort_by)
 		if !category_list.nil? 
-			Activity.where("category in(?)", category_list) 
+			Activity.where("category in(?)", category_list).order sort_by 
 		else
-			Activity.all
+			Activity.all.order sort_by
 		end
 	end
 end
