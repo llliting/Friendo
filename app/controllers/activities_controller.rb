@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
       def index
         @all_categories = Activity.all_categories
     
+        
         @sort_by = params[:sort_by]||session[:sort_by]||'date'
         session[:sort_by] = @sort_by
     
@@ -47,7 +48,7 @@ class ActivitiesController < ApplicationController
     
       def create
         @activity = Activity.create!(activity_params)
-        flash[:notice] = "#{@activity.title} was successfully created."
+        flash[:notice] = "#{@activity.event_name} was successfully created."
         redirect_to activities_path
       end
     
@@ -72,8 +73,8 @@ class ActivitiesController < ApplicationController
       private
       # Making "internal" methods private is not required, but is a common practice.
       # This helps make clear which methods respond to requests, and which ones do not.
-      def movie_params
-        params.require(:activity).permit(:event_name, :location, :description, :release_date, :max_size, :current_size)
+      def activity_params
+        params.require(:activity).permit(:event_name, :location, :description, :date, :max_size, :current_size, :organizer, :category)
       end 
 
 end

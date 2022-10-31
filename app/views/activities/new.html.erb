@@ -19,12 +19,11 @@
   <%= label :activity, :current_size, 'Current Party Size', :class => 'col-form-label' %>
   <%= text_field :activity, :current_size, :class => 'form-control' %>
 
-  <%= label :activity, :location, 'Location', :class => 'col-form-label' %>
-  <%= text_field :activity, :location, :class => 'form-control' %>
+  <%= label :activity, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_field :activity, :description, :class => 'form-control' %>
 
   <%= label :activity, :date, 'Date', :class => 'col-form-label'  %>
   <%= date_select :activity, :date, {}, :class => 'form-control col-2 d-inline' %>
-
   
   <br/>
   <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
