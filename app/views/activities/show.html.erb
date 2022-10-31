@@ -4,7 +4,7 @@
 <ul id="details">
   <li>
     Category:
-    <%= @activity.rating %>
+    <%= @activity.category %>
   </li>
   <li>
     Maximum size:
@@ -18,7 +18,7 @@
 </p>
 
 <div class="row">
-  <%= link_to 'Edit', edit_activity_path(@movie), :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', activity_path(@movie), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
-  <%= link_to 'Back to movie list', activities_path, :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Edit', edit_activity_path(@activity), :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Delete', activity_path(@activity), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+  <%= link_to 'Back to activities list', activities_path, :class => 'btn btn-primary col-2' %>
 </div>

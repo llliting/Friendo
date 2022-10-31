@@ -55,9 +55,9 @@ class ActivitiesController < ApplicationController
       end 
 
       def force_index_redirect
-        if !params.key?(:ratings) || !params.key?(:sort_by)
+        if !params.key?(:categories) || !params.key?(:sort_by)
           flash.keep
-          url = activities_path(sort_by: sort_by, ratings: ratings_hash)
+          url = activities_path(sort_by: sort_by, categories: categories_hash)
           redirect_to url
         end
       end
