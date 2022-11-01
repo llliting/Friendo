@@ -11,45 +11,34 @@ describe UsersController, type: :controller do
     end
   end
 
-#   describe 'register new user' do
-#     before do 
-#       get :director, :id => Movie.find_by(title: 'THX-1138').id
-#     end
-#     it 'should return movies with the same director' do
-#       expect(response).to have_http_status(:success)
-#       expect(assigns(:movies)).to include(Movie.find_by(title: 'Star Wars'))
-#     end
-#     it 'should not return movies with different directors' do 
-#       expect(assigns(:movies)).not_to include(Movie.find_by(title: 'Iron Man'))
-#     end
-#   end
-
-  describe 'edit user profile' do
-    before do 
-      put :edit, :id => User.find_by(user_name: 'tester1').id, :session =>  {'user_id' => 1}, :user => {:first_name => "tester1 first name"}
-    end
+  describe 'register new user successfully' do
     it 'should success' do
-      expect(response).to have_http_status(:success)
+      post :create, :user => {:user_name => 'tester3', :first_name => 'tfn3', :last_name => 'tln3', :password => '12345678'}
+      expect(response).to redirect_to(root_path)
     end
   end
 
-#   describe 'Updating director' do 
-#     it 'should update director field' do
-#       get :edit, :id => Movie.find_by(title:'Iron Man').id
-#       expect(response).to render_template('edit')
-#       put :update, :id => Movie.find_by(title:'Iron Man').id, :movie => {:director => 'Jon Favreau'}
-#       expect(response).to redirect_to(movie_path(Movie.find_by(title: 'Iron Man')))
-#       expect(assigns(:movie).director).to eq('Jon Favreau')
-#     end
-#   end
+  describe 'register new user with duplicated name' do
+    it 'should success' do
+      post :create, :user => {:user_name => 'tester1', :first_name => 'tfn1', :last_name => 'tln1', :password => 'abcdefgh'}
+      expect(response).to redirect_to(new_user_path)
+    end
+  end
 
-#   describe 'if director does not exist' do 
-#     it 'should not find similar movies' do
-#       get :show, :id =>Movie.find_by(title: 'Alien').id
-#       expect(response).to have_http_status(:success)
-#       expect(assigns(:movie).director).not_to eq('Ridley Scott')
-#       get :director, :id => Movie.find_by(title: 'Alien').id
-#       expect(response).to redirect_to(movies_path)
-#     end
-#   end
+  describe 'edit user profile successfully' do
+    it 'should success' do
+      session[:user_id] = '1'
+      put :update, :id => User.find_by(user_name: 'tester1').id, :user => {:first_name => "tester1 first name"}
+      expect(response).to redirect_to(user_path(1))
+      expect(User.find_by(user_name: 'tester1').first_name).to eq('tester1 first name')
+    end
+  end
+
+  describe 'edit user profile without login' do
+    it 'should failed' do
+      session[:user_id] = nil
+      put :update, :id => User.find_by(user_name: 'tester1').id, :user => {:first_name => "tester1 first name"}
+      expect(response).to redirect_to(new_session_path)
+    end
+  end
 end
