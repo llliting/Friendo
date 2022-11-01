@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/litinghuang/Desktop/Friendo/app/models/activity.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/models/activity.rb": {
         "lines": [
           1,
           1,
@@ -10,15 +10,11 @@
           null,
           1,
           21,
-          21,
-          null,
-          0,
-          null,
           null,
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/models/user.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -26,7 +22,7 @@
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/controllers/sessions_controller.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/controllers/sessions_controller.rb": {
         "lines": [
           1,
           null,
@@ -55,7 +51,7 @@
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
@@ -64,19 +60,19 @@
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/helpers/application_helper.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/helpers/activities_helper.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/helpers/activities_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/controllers/users_controller.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -151,7 +147,7 @@
           null
         ]
       },
-      "/Users/litinghuang/Desktop/Friendo/app/controllers/activities_controller.rb": {
+      "/mnt/c/Users/pwz26/OneDrive/Desktop/Repos/Friendo/app/controllers/activities_controller.rb": {
         "lines": [
           1,
           1,
@@ -240,6 +236,6 @@
         ]
       }
     },
-    "timestamp": 1667422270
+    "timestamp": 1667274801
   }
 }
