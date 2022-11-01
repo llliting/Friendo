@@ -7,9 +7,9 @@ Feature: create a new activity
   Background: activites in database
 
     Given the following activites exist:
-      | event_name      | organizer        | location | current_size | max_size| date     |description | category|
-      | Halloween Parade| Caroline Wang    | 6th ave  |   2          | 10      |2022-10-31|""          |others  |
-      | Study Night     | Liting Huang     | Butler   |1             | 4       |2022-11-3 |"study night at lib"| education|
+      | event_name      | organizer        | location | current_size | max_size| date     |description          | category  |
+      | Halloween Parade| Caroline Wang    | 6th ave  |   2          | 10      |2022-10-31|""                   | Others    |
+      | Study Night     | Liting Huang     | Butler   |1             | 4       |2022-11-3 |"study night at lib" | Education |
 
     Given the following users exist:
       | user_name    | first_name | last_name | password |
@@ -28,7 +28,6 @@ Feature: create a new activity
     And  I fill in "Name" with "Phanotom of the Opera"
     And  I fill in "Organizer" with "Jennifer"
     And  I fill in "Location" with "Broadway"
-
     And  I fill in "Current Party Size" with 2
     And  I fill in "Max Party Size" with 10
     And  I press "Save Changes"
@@ -36,11 +35,13 @@ Feature: create a new activity
     Then the location of "Phanotom of the Opera" should be "Broadway"
     Then the current_size of "Phanotom of the Opera" should be 2
     Then the max party size of "Phanotom of the Opera" should be 10
+    Then I go to the activities page
+    Then I should see "Phanotom of the Opera"
 
   Scenario: delete an event to
-    When I go to the details page for 'Study Night'
-    And I press "delete"
-    And I go to the activity page
-    Then I should not see 'Study Night'
+    When I go to the details page for "Study Night"
+    And I follow "Delete"
+    And I go to the home page
+    Then I should not see "Study Night"
 
 

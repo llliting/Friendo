@@ -1,7 +1,7 @@
 
 Given /the following activites exist/ do |activites_table|
   activites_table.hashes.each do |activity|
-    Activity.create activity
+    act = Activity.create activity
   end
 end
 
@@ -9,21 +9,25 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  regexp = /#{e1}.*{e2}/m
-  regexp.match(page.body)
-  #pending "Fill in this step in movie_steps.rb"
+  if page.body.index(e1) > page.body.index(e2)
+    fail "e1 should appear before e2"
+  end
 end
 
 
 When /I (un)?check the following categories: (.*)/ do |uncheck, category_list|
-  category_list.split(', ').each do |category|
-    step %{I #{uncheck.nil? ? '' : 'un'}check "ratings_#{category}"}
+  category_list.split(',').each do |tag|
+    if uncheck
+      uncheck(tag.strip)
+    else
+      check(tag.strip)
+    end
   end
 end
 
 
 
-Then /I should see all the activites/ do
+Then /I should see all the activities/ do
   # Make sure that all the movies in the app are visible in the table
   Activity.all.each do |activity|
     step %{I should see "#{activity.event_name}"}

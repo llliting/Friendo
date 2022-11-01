@@ -8,8 +8,8 @@ Feature: sort activities
 
     Given the following activites exist:
       | event_name      | organizer        | location | current_size | max_size| date     |description | category|
-      | Study Night     | Liting Huang     | Butler   |1             | 4       |2022-11-3 |"study night at lib"| education|
-      | Halloween Parade| Caroline Wang    | 6th ave  |   2          | 10      |2022-10-31|""          |others  |
+      | Study Night     | Liting Huang     | Butler   |1             | 4       |2022-11-3 |"study night at lib"| Education|
+      | Halloween Parade| Caroline Wang    | 6th ave  |   2          | 10      |2022-10-31|""          |Others  |
 
 
     Given the following users exist:
@@ -25,18 +25,14 @@ Feature: sort activities
 
 
   Scenario: sort movies alphabetically
-
-    When I go to the activities page
     And  I follow "Event Name"
-    Then I should see "Halloween Parade" before "Study Night  "
+    Then I should see "Halloween Parade" before "Study Night"
 
   Scenario: sort movies in increasing order of release date
     When I follow "Date"
-    Then I should see "Halloween Parade" before "Study Night  "
+    Then I should see "Halloween Parade" before "Study Night"
 
   Scenario: all categories unchecked
-  # your steps here
-    When I uncheck the following categories:Arts, Entertainment, Education, Sports, Outdoor, Others
+    Then I uncheck the following categories: Arts, Entertainment, Education, Sports, Outdoor, Others
     And I press "Refresh"
     Then I should see all the activities
-    Then I should see "Halloween Parade" before "Study Night"
