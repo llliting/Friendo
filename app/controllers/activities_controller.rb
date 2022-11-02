@@ -80,10 +80,5 @@ class ActivitiesController < ApplicationController
           redirect_to new_session_path
           return
         end
-        user = User.find session[:user_id]
-        if user == nil
-          redirect_to new_session_path
-          return
-        end
       end
 end
