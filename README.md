@@ -6,6 +6,8 @@ Wenzhe Pei (wp2280)
 Jingyi Wang (jw4204)
 Zhe Wang (zw2695)
 
+## Heroku Link
+https://still-cliffs-71747.herokuapp.com/sessions/new
 
 ## Features 
 - user authentication 
