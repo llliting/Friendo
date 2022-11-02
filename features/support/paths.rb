@@ -23,11 +23,21 @@ module NavigationHelpers
       when /^the register page$/ then "/users/new"
       when /^the welcome page$/ then "/users"
       when /^the edit page for "(.*)"$/ then edit_user_path($1)
+      when /^the new event page$/ then "/activities/new"
+
+      when /^the activity edit page for "(.*)"$/
+        activity_id = Activity.find_by(event_name: $1).id
+        edit_activity_path(activity_id)
+
+      when /^the details page for "(.*)"$/
+        activity_id = Activity.find_by(event_name: $1).id
+        activity_path(activity_id)
         # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
       #   when /^(.*)'s profile page$/i
       #     user_profile_path(User.find_by_login($1))
+
       else
         begin
           page_name =~ /^the (.*) page$/
