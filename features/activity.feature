@@ -37,4 +37,10 @@ Feature: create a new activity
     Then the current_size of "Phanotom of the Opera" should be 2
     Then the max party size of "Phanotom of the Opera" should be 10
 
+  Scenario: delete an event to
+    When I go to the details page for 'Study Night'
+    And I press "delete"
+    And I go to the activity page
+    Then I should not see 'Study Night'
+
 
