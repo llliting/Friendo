@@ -39,7 +39,7 @@
     <% @activities.each do |activity| %>
       <tr>
         <td>
-          <%= activity.event_name %>
+          <%= link_to "#{activity.event_name}", activity_path(activity) %>
         </td>
         <td>
           <%= activity.organizer %>
@@ -58,9 +58,6 @@
         </td>
         <td>
           <%= activity.location %>
-        </td>
-        <td>
-          <%= link_to "More about #{activity.event_name}", activity_path(activity) %>
         </td>
 
       </tr>
