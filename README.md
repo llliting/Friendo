@@ -22,7 +22,15 @@ rails server
 ```
 
 ## Instructions for testing 
+
+running cucumber/user stories test
 ```
 bundle exec cucumber
 ```
+
+running rspec
+```
+rake spec
+```
+
 
