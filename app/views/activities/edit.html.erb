@@ -2,8 +2,6 @@
 <%= form_tag activity_path(@activity), :method => :put do %>
   <%= label :activity, :event_name, 'Event Name', :class => 'col-form-label' %>
   <%= text_field :activity, 'event_name', :class => 'form-control' %>
-  <%= label :activity, :organizer, 'Organizer', :class => 'col-form-label' %>
-  <%= text_field :activity, 'organizer', :class => 'form-control' %>
   <%= label :activity, :max_size, 'Max Size', :class => 'col-form-label' %>
   <%= text_field :activity, 'max_size', :class => 'form-control' %>
   <%= label :activity, :current_size, 'Current Size', :class => 'col-form-label' %>

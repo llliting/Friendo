@@ -33,6 +33,7 @@
               id: 'date_header', class: ('bg-warning hilite' if @sort_by == 'date') %>
       </th>
       <th>Location</th>
+      <th>Participating</th>
     </tr>
   </thead>
   <tbody>
@@ -42,7 +43,7 @@
           <%= link_to "#{activity.event_name}", activity_path(activity) %>
         </td>
         <td>
-          <%= activity.organizer %>
+          <%= get_organizor_name(activity) %>
         </td>
         <td>
           <%= activity.max_size %>
@@ -59,7 +60,13 @@
         <td>
           <%= activity.location %>
         </td>
-
+        <td>
+            <% if participated(activity) then %>
+            <%= link_to 'True', relation_path(user_id: session[:user_id], activity_id: activity.id, id: activity.id), :method => 'delete', :class => 'btn btn-primary' %>
+            <% else %>
+            <%= link_to 'False', relations_path(user_id: session[:user_id], activity_id: activity.id), :method => 'post', :class => 'btn btn-danger' %>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

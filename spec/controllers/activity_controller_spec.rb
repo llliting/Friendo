@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe ActivitiesController, type: :controller do
   activities = [
-    {:event_name => 'Halloween Night', :organizer => 'Caroline Wang', :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022'},
-    {:event_name => 'Met Sunday', :organizer => 'Liting Huang', :max_size => 4, :current_size =>1, :category => 'Arts', :date => '30-Oct-2022'},
-    {:event_name => 'Study Monday', :organizer => 'Liting Huang', :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2022'},
+    {:event_name => 'Halloween Night', :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022'},
+    {:event_name => 'Met Sunday', :creator_id => 1, :max_size => 4, :current_size =>1, :category => 'Arts', :date => '30-Oct-2022'},
+    {:event_name => 'Study Monday', :creator_id => 2, :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2022'},
   ]
 
   users = [
@@ -16,7 +16,7 @@ describe ActivitiesController, type: :controller do
 
 
   before do
-    session[:user_id] = '1'
+    session[:user_id] = 1
     users.each do |user|
       User.new(user).save
     end
@@ -34,17 +34,19 @@ describe ActivitiesController, type: :controller do
     end
   end
 
-
-
-  describe 'create new event successfully' do
-    it 'should success' do
-      post :create, :activity => {:event_name => 'Korean food', :organizer => 'Brittany', :location => 'ktown', :max_size => 5, :current_size =>2, :category => 'Others', :date => '3-Nov-2022'}
+  describe 'delete an event without permission' do
+    it 'should fail' do
+      delete :destroy, :id => Activity.find_by(event_name: 'Study Monday').id
       expect(response).to redirect_to(activities_path)
     end
   end
 
-
-
+  describe 'create new event successfully' do
+    it 'should success' do
+      post :create, :activity => {:event_name => 'Korean food', :location => 'ktown', :max_size => 5, :current_size =>2, :category => 'Others', :date => '3-Nov-2022'}
+      expect(response).to redirect_to(activities_path)
+    end
+  end
 
   describe 'Updating max size' do
     it 'should update max party size field' do
@@ -62,14 +64,6 @@ describe ActivitiesController, type: :controller do
     end
   end
 
-  describe 'Updating organizer' do
-    it 'should update organizer field' do
-      get :edit, :id => Activity.find_by(event_name:'Met Sunday').id
-      put :update, :id => Activity.find_by(event_name:'Met Sunday').id, :activity => {:organizer => 'Leo'}
-      expect(assigns(:activity).organizer).to eq('Leo')
-    end
-  end
-
   describe 'Updating date' do
     it 'should update date field' do
       get :edit, :id => Activity.find_by(event_name:'Met Sunday').id
@@ -78,5 +72,12 @@ describe ActivitiesController, type: :controller do
     end
   end
 
+  describe 'Updating max size without permission' do
+    it 'should fail' do
+      get :edit, :id => Activity.find_by(event_name:'Study Monday').id
+      put :update, :id => Activity.find_by(event_name:'Study Monday').id, :activity => {:max_size => '12'}
+      expect(assigns(:activity).max_size).to eq(6)
+    end
+  end
 
 end
