@@ -35,7 +35,10 @@ Then /I should see all the activities/ do
 end
 
 Then /the organizer of "(.*)" should be "(.*)"/ do |event_name, organizer|
-  expect(Activity.find_by_event_name(event_name).organizer == organizer)
+  activity = Activity.find_by_event_name(event_name)
+  creator = User.find(activity.creator_id)
+  expected_organizer = creator.first_name + " " + creator.last_name
+  expect(organizer == expected_organizer)
 end
 
 Then /the location of "(.*)" should be "(.*)"/ do |event_name, loc|

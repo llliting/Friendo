@@ -51,6 +51,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(session[:user_id])
         @user.destroy
+        Activity.where(creator_id: session[:user_id]).destroy_all
         logout
     end
 

@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221031020723) do
+ActiveRecord::Schema.define(version: 20221109213751) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "event_name"
-    t.string   "organizer"
     t.integer  "max_size"
     t.integer  "current_size"
     t.text     "description"
@@ -24,6 +23,12 @@ ActiveRecord::Schema.define(version: 20221031020723) do
     t.string   "location"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "creator_id"
+  end
+
+  create_table "activity_user_relations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "activity_id"
   end
 
   create_table "users", force: :cascade do |t|
