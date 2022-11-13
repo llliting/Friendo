@@ -20,7 +20,6 @@ class RelationsController < ApplicationController
         else
             ####close activity ??
         end
-        ### DECREASE SIZE
         redirect_to activities_path
     end
 end
