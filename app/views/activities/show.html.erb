@@ -7,15 +7,27 @@
     <%= @activity.category %>
   </li>
   <li>
+    Location:
+    <%= @activity.location %>
+  </li>
+  <li>
+    Date:
+    <%= @activity.date %>
+  </li>
+  <li>
     Maximum size:
     <%= @activity.max_size %>
   </li>
+  <li>
+    Current number of participants:
+    <%= @activity.current_size %>
+  </li>
+  <li>
+    Description:
+    <%= @activity.description %>
+  </li>
 </ul>
 
-<h3>Description:</h3>
-<p id="description">
-  <%= @activity.description %>
-</p>
 
 <div class="row">
   <% if can_modify(@activity) then %>
