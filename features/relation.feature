@@ -8,7 +8,7 @@ Feature: join/leave an activity
     Given the following activites exist:
       | event_name      | creator_id        | location | current_size | max_size| date     |description          | category  |
       | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""                   | Others    |
-      | Study Night     | 2                 | Butler   |1             | 4       |2022-11-3 |"study night at lib" | Education |
+      | Study Night     | 2                 | Butler   |   4          | 4       |2022-11-3 |"study night at lib" | Education |
 
     Given the following users exist:
       | user_name    | first_name | last_name | password |
@@ -23,13 +23,23 @@ Feature: join/leave an activity
   Scenario: Join an activity
     When I go to the details page for "Study Night"
     And I follow "Participate!"
+    Then the current_size of "Study Night" should be 2
+    Then I go to the details page for "Study Night"
+    Then I should see "Leave!"
+
+  Scenario: Join a full activity
+    When I go to the details page for "Study Night"
+    And I follow "Participate!"
+    Then the current_size of "Study Night" should be 4
     Then I go to the details page for "Study Night"
     Then I should see "Leave!"
 
   Scenario: Leave an activity
-    When I go to the details page for "Study Night"
+    When I go to the details page for "Halloween Parade"
     And I follow "Participate!"
-    Then I go to the details page for "Study Night"
+    Then I go to the details page for "Halloween Parade"
+    Then the current_size of "Halloween Parade" should be 2
     Then I follow "Leave!"
-    Then I go to the details page for "Study Night"
+    Then the current_size of "Halloween Parade" should be 1
+    Then I go to the details page for "Halloween Parade"
     Then I should see "Participate!"

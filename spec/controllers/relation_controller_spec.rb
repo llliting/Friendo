@@ -31,6 +31,7 @@ describe RelationsController, type: :controller do
     it 'should success' do
       post :create, :activity_id => Activity.find_by(event_name: 'Halloween Night').id, :user_id => 1
       expect(response).to redirect_to(activities_path)
+      expect(assigns(:activity).current_size).to eq(4)
     end
   end
 
@@ -44,9 +45,10 @@ describe RelationsController, type: :controller do
 
   describe 'leave an event successfully' do
     it 'should success' do
-      post :create, :activity_id => Activity.find_by(event_name: 'Halloween Night').id, :user_id => 1
-      delete :destroy, :activity_id => Activity.find_by(event_name: 'Halloween Night').id, :user_id => 1, :id => Activity.find_by(event_name: 'Halloween Night').id
+      post :create, :activity_id => Activity.find_by(event_name: 'Study Monday').id, :user_id => 1
+      delete :destroy, :activity_id => Activity.find_by(event_name: 'Study Monday').id, :user_id => 1, :id => Activity.find_by(event_name: 'Halloween Night').id
       expect(response).to redirect_to(activities_path)
+      expect(assigns(:activity).current_size).to eq(2)
     end
   end
 end
