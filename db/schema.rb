@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20221109213751) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "creator_id"
+    t.string   "status"
   end
 
   create_table "activity_user_relations", force: :cascade do |t|

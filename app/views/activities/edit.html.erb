@@ -1,5 +1,7 @@
 <h2>Edit Existing Activity</h2>
 <%= form_tag activity_path(@activity), :method => :put do %>
+  <%= label :activity, :status, 'Close an activity', :class => 'col-form-label'  %>
+  <%= select :activity, :status, ['Open', 'Close'], {}, {:class => 'form-control col-1'} %>
   <%= label :activity, :event_name, 'Event Name', :class => 'col-form-label' %>
   <%= text_field :activity, 'event_name', :class => 'form-control' %>
   <%= label :activity, :max_size, 'Max Size', :class => 'col-form-label' %>

@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :user_authenticate
   before_action :force_index_redirect, only: [:index]
-  helper_method :get_organizor_name, :can_modify, :participated
+  helper_method :get_organizor_name, :can_modify, :participated, :is_open, :close_activity
 
       def show
         id = params[:id] 
@@ -63,8 +63,13 @@ class ActivitiesController < ApplicationController
       # Making "internal" methods private is not required, but is a common practice.
       # This helps make clear which methods respond to requests, and which ones do not.
       def activity_params
-        params.require(:activity).permit(:event_name, :location, :description, :date, :max_size, :current_size, :creator_id, :category)
+        params.require(:activity).permit(:event_name, :location, :description, :date, :max_size, :current_size, :creator_id, :category, :status)
       end 
+
+      private
+      def is_open(activity)
+        return activity.status == 'Open'
+      end
 
       private
       def get_organizor_name(activity)

@@ -7,6 +7,9 @@
   <%= label :activity, :category, 'Category', :class => 'col-form-label'  %>
   <%= select :activity, :category, ['Arts', 'Entertainment', 'Education', 'Sports', 'Outdoor', 'Others'], {}, {:class => 'form-control col-1'} %>
 
+  <%= label :activity, :status, 'Status', :class => 'col-form-label'  %>
+  <%= select :activity, :status, ['Open', 'Close'], {}, {:class => 'form-control col-1'} %>
+
   <%= label :activity, :location, 'Location', :class => 'col-form-label' %>
   <%= text_field :activity, :location, :class => 'form-control' %>
 
