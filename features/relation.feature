@@ -24,8 +24,11 @@ Feature: join/leave an activity
     When I go to the details page for "Study Night"
     And I follow "Participate!"
     Then the current_size of "Study Night" should be 2
+    And I go to the user details page for "tester1"
+    Then I should see "Study Night"
     Then I go to the details page for "Study Night"
     Then I should see "Leave!"
+
 
   Scenario: Join a full activity
     When I go to the details page for "Study Night"

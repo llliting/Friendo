@@ -29,6 +29,7 @@ class ActivitiesController < ApplicationController
         @activity = Activity.create!(activity_params)
         @activity.update(creator_id: session[:user_id])
         flash[:notice] = "#{@activity.event_name} was successfully created."
+        #ActivityUserRelation.create!(session[:user_id], @activity.id)
         redirect_to activities_path
       end
     

@@ -16,6 +16,8 @@ Feature: create a new activity
       | tester1      | tfn1       | tln1      | abcdefgh |
       | tester2      | tfn2       | tln2      | 12345678 |
 
+
+
     Then I go to the login page
     And  I fill in "Username" with "tester1"
     And  I fill in "Password" with "abcdefgh"
@@ -36,6 +38,7 @@ Feature: create a new activity
     Then the max party size of "Phanotom of the Opera" should be 10
     Then I go to the activities page
     Then I should see "Phanotom of the Opera"
+
 
   Scenario: delete an event to
     When I go to the details page for "Halloween Parade"

@@ -25,6 +25,7 @@ module NavigationHelpers
       when /^the edit page for "(.*)"$/ then edit_user_path($1)
       when /^the new event page$/ then "/activities/new"
 
+
       when /^the activity edit page for "(.*)"$/
         activity_id = Activity.find_by(event_name: $1).id
         edit_activity_path(activity_id)
@@ -32,6 +33,10 @@ module NavigationHelpers
       when /^the details page for "(.*)"$/
         activity_id = Activity.find_by(event_name: $1).id
         activity_path(activity_id)
+
+      when /^the user details page for "(.*)"$/
+        user_id = User.find_by(user_name: $1).id
+        user_path(user_id)
         # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
