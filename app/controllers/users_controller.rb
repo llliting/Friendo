@@ -14,6 +14,13 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find session[:user_id]
+        @relations = ActivityUserRelation.find_by(user_id: session[:user_id])
+        @activities = Array.new
+        @relations.each do |relation|
+            @activities.push Activity.find(relation[:activity_id])
+        end
+
+
     end
 
     # Edit Profile

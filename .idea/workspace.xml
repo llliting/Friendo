@@ -7,40 +7,11 @@
     <list default="true" id="f25fa4de-3be2-411b-b3e9-ee1ac0df57db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/relations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/relations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.last_run.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.resultset.json.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/DataTables-1.10.20/images/sort_asc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/DataTables-1.10.20/images/sort_asc_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/DataTables-1.10.20/images/sort_both.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/DataTables-1.10.20/images/sort_desc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/DataTables-1.10.20/images/sort_desc_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/application.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/application.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/colorbox/border.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/colorbox/controls.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/colorbox/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/colorbox/loading_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/favicon_green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/favicon_red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/favicon_yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/assets/0.12.3/magnify.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/controllers/activity_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/activity_controller_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +206,8 @@
       <updated>1667329815861</updated>
       <workItem from="1667329817419" duration="21051000" />
       <workItem from="1668314382380" duration="9764000" />
-      <workItem from="1668357481100" duration="1140000" />
+      <workItem from="1668357481100" duration="2519000" />
+      <workItem from="1668450969374" duration="5577000" />
     </task>
     <servers />
   </component>

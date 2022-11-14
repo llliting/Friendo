@@ -48,6 +48,25 @@ describe ActivitiesController, type: :controller do
     end
   end
 
+  describe 'show the detail of an event successfully' do
+    it 'should success' do
+      post :show, :id => Activity.find_by(event_name:'Met Sunday').id
+      expect(response).to have_http_status(:success)
+
+    end
+  end
+
+  describe 'show the activities board' do
+    it 'should success' do
+      total = Activity.all.count
+      get :index
+      expect(response.body).to match total.to_s
+    end
+  end
+
+
+
+
   describe 'Updating max size' do
     it 'should update max party size field' do
       get :edit, :id => Activity.find_by(event_name:'Met Sunday').id
