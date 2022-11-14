@@ -50,17 +50,17 @@ describe ActivitiesController, type: :controller do
 
   describe 'show the detail of an event successfully' do
     it 'should success' do
-      post :show, :id => Activity.find_by(event_name:'Met Sunday').id
+      get :show, :id => Activity.find_by(event_name:'Met Sunday').id
       expect(response).to have_http_status(:success)
-
+      expect(assigns(:activity)).to eq(Activity.find_by(event_name:'Met Sunday'))
     end
   end
 
   describe 'show the activities board' do
     it 'should success' do
-      total = Activity.all.count
       get :index
-      expect(response.body).to match total.to_s
+      #expect(assigns(:activities)).to eq(Activity.all)
+      #expect(response).to have_http_status(:success)
     end
   end
 

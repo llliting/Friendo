@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find session[:user_id]
-        @relations = ActivityUserRelation.find_by(user_id: session[:user_id])
+        @relations = ActivityUserRelation.where(user_id: session[:user_id])
         @activities = Array.new
         @relations.each do |relation|
             @activities.push Activity.find(relation[:activity_id])
@@ -26,15 +26,15 @@ class UsersController < ApplicationController
     # Edit Profile
     def edit
         @user = User.find session[:user_id]
-      end
-    
-      def update
-        @user = User.find session[:user_id]
-        @user.update_attributes!(user_params)
-        flash[:notice] = "#{@user.user_name} was successfully updated."
-        redirect_to user_path(@user)
-      end
-    
+  end
+
+  def update
+    @user = User.find session[:user_id]
+    @user.update_attributes!(user_params)
+    flash[:notice] = "#{@user.user_name} was successfully updated."
+    redirect_to user_path(@user)
+  end
+
     # Register
     def new
     end

@@ -15,6 +15,7 @@
     <ul>
     <% @activities.each do |activity| %>
         <li><%= link_to "#{activity.event_name}", activity_path(activity) %> </li>
+      <% end%>
         </ul>
   </li>
 

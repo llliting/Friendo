@@ -18,6 +18,14 @@ describe UsersController, type: :controller do
     end
   end
 
+  describe 'show the detail of a user successfully' do
+    it 'should success' do
+      post :show, :id => User.find_by(user_name:'tester1').id
+      expect(response).to have_http_status(:success)
+      #expect(assigns(:user)).to eq(User.find_by(user_name:'tester1'))
+    end
+  end
+
   describe 'register new user with duplicated name' do
     it 'should success' do
       post :create, :user => {:user_name => 'tester1', :first_name => 'tfn1', :last_name => 'tln1', :password => 'abcdefgh'}
