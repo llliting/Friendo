@@ -33,6 +33,7 @@
               id: 'date_header', class: ('bg-warning hilite' if @sort_by == 'date') %>
       </th>
       <th>Location</th>
+      <th>Status</th>
       <th>Participating</th>
     </tr>
   </thead>
@@ -59,6 +60,9 @@
         </td>
         <td>
           <%= activity.location %>
+        </td>
+        <td>
+          <%= activity.status %>
         </td>
         <td>
             <% if participated(activity) then %>
