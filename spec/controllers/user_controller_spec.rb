@@ -1,14 +1,34 @@
 require 'rails_helper'
 
 describe UsersController, type: :controller do
+
+  activities = [
+    {:event_name => 'Halloween Night', :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022'},
+    {:event_name => 'Met Sunday', :creator_id => 1, :max_size => 4, :current_size =>4, :category => 'Arts', :date => '30-Oct-2022'},
+    {:event_name => 'Study Monday', :creator_id => 2, :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2022'},
+  ]
+
   users = [
     {:user_name => 'tester1', :first_name => 'tfn1', :last_name => 'tln1', :password => 'abcdefgh'},
     {:user_name => 'tester2', :first_name => 'tfn2', :last_name => 'tln2', :password => '12345678'},
   ]
+
+  relations = [
+    {:user_id => 1, :activity_id=>1}
+  ]
+
+
   before do
     users.each do |user|
       post :create, :user => user
     end
+    activities.each do |activity|
+      Activity.new(activity).save
+    end
+    relations.each do |relation|
+      ActivityUserRelation.new(relation).save
+    end
+
   end
 
   describe 'register new user successfully' do
@@ -20,9 +40,9 @@ describe UsersController, type: :controller do
 
   describe 'show the detail of a user successfully' do
     it 'should success' do
-      post :show, :id => User.find_by(user_name:'tester1').id
+      post :show, :id => 1
       expect(response).to have_http_status(:success)
-      #expect(assigns(:user)).to eq(User.find_by(user_name:'tester1'))
+      #expect(assigns(:user)).to eq(1)
     end
   end
 
@@ -32,6 +52,16 @@ describe UsersController, type: :controller do
       expect(response).to redirect_to(new_user_path)
     end
   end
+
+  describe 'delete an event successfully' do
+    it 'should success' do
+      delete :destroy, :id => User.find_by(user_name: 'tester1').id
+      expect(response).to redirect_to(root_path)
+    end
+  end
+
+
+
 
   describe 'edit user profile successfully' do
     it 'should success' do
