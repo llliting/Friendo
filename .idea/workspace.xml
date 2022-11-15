@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/coverage/.last_run.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/relation_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/relation_controller_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/controllers/activity_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/activity_controller_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/controllers/user_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/user_controller_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +206,7 @@
       <workItem from="1667329817419" duration="21051000" />
       <workItem from="1668314382380" duration="9764000" />
       <workItem from="1668357481100" duration="2519000" />
-      <workItem from="1668450969374" duration="16819000" />
+      <workItem from="1668450969374" duration="20543000" />
     </task>
     <servers />
   </component>

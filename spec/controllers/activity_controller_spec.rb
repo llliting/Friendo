@@ -26,7 +26,6 @@ describe ActivitiesController, type: :controller do
     end
   end
 
-
   describe 'delete an event successfully' do
     it 'should success' do
       delete :destroy, :id => Activity.find_by(event_name: 'Halloween Night').id
@@ -58,11 +57,22 @@ describe ActivitiesController, type: :controller do
 
   describe 'show the activities board' do
     it 'should success' do
-      get :index
-      #expect(assigns(:activities)).to eq(Activity.all)
-      #expect(response).to have_http_status(:success)
+      get :index, :sort_by=>'Date', :categories => {'Entertainment': 1}
+      expect(assigns(:activities)).to eq([Activity.find_by(event_name: 'Halloween Night')])
+      expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'show the activities board' do
+
+    it 'should success' do
+      get :index
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+
+
+
 
 
 
@@ -96,6 +106,14 @@ describe ActivitiesController, type: :controller do
       get :edit, :id => Activity.find_by(event_name:'Study Monday').id
       put :update, :id => Activity.find_by(event_name:'Study Monday').id, :activity => {:max_size => '12'}
       expect(assigns(:activity).max_size).to eq(6)
+    end
+  end
+
+  describe 'redirect to new session path when no user exists' do
+    it 'should failed' do
+      session[:user_id] = nil
+      get :edit, :id => '1'
+      expect(response).to redirect_to(new_session_path)
     end
   end
 

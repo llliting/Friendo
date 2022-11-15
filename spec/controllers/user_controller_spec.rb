@@ -38,11 +38,14 @@ describe UsersController, type: :controller do
     end
   end
 
+
+
   describe 'show the detail of a user successfully' do
     it 'should success' do
+      session[:user_id] = '1'
       post :show, :id => 1
       expect(response).to have_http_status(:success)
-      #expect(assigns(:user)).to eq(1)
+      expect(assigns(:user)).to eq(User.find_by_id(1))
     end
   end
 
@@ -60,22 +63,46 @@ describe UsersController, type: :controller do
     end
   end
 
+  describe 'get user with session key' do
+    it 'should success' do
+      session[:user_id] = '1'
+      get :index
+      expect(response).to redirect_to(activities_path)
+    end
+  end
+
+  describe 'get user without session key' do
+    it 'should redirect' do
+      session[:user_id] = nil
+      get :index
+      expect(response).to redirect_to(new_session_path)
+    end
+  end
+
+  describe 'get the user' do
+    it 'should success' do
+      session[:user_id] = nil
+      get :index
+      expect(response).to redirect_to(new_session_path)
+    end
+  end
 
 
 
   describe 'edit user profile successfully' do
     it 'should success' do
       session[:user_id] = '1'
+      get :edit, :id => '1'
       put :update, :id => User.find_by(user_name: 'tester1').id, :user => {:first_name => "tester1 first name"}
       expect(response).to redirect_to(user_path(1))
       expect(User.find_by(user_name: 'tester1').first_name).to eq('tester1 first name')
     end
   end
 
-  describe 'edit user profile without login' do
+  describe 'redirect to new session path when no user exists' do
     it 'should failed' do
       session[:user_id] = nil
-      put :update, :id => User.find_by(user_name: 'tester1').id, :user => {:first_name => "tester1 first name"}
+      get :edit, :id => '1'
       expect(response).to redirect_to(new_session_path)
     end
   end
