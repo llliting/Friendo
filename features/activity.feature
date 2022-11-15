@@ -7,9 +7,9 @@ Feature: create a new activity
   Background: activites in database
 
     Given the following activites exist:
-      | event_name      | creator_id        | location | current_size | max_size| date     |description          | category  |
-      | Halloween Parade| 1    | 6th ave  |   2          | 10      |2022-10-31|""                   | Others    |
-      | Study Night     | 2     | Butler   |1             | 4       |2022-11-3 |"study night at lib" | Education |
+      | event_name      | creator_id        | location | current_size | max_size| date     |description          | category  | status |
+      | Halloween Parade| 1    | 6th ave  |   2          | 10      |2022-10-31|""                   | Others    | Open |
+      | Study Night     | 2     | Butler   |1             | 4       |2022-11-3 |"study night at lib" | Education | Open |
 
     Given the following users exist:
       | user_name    | first_name | last_name | password |
@@ -31,11 +31,13 @@ Feature: create a new activity
     And  I fill in "Location" with "Broadway"
     And  I fill in "Current Party Size" with 2
     And  I fill in "Max Party Size" with 10
+    And I select "Open" from "Status"
     And  I press "Save Changes"
     Then the organizer of "Phanotom of the Opera" should be "tfn1 tln1"
     Then the location of "Phanotom of the Opera" should be "Broadway"
     Then the current_size of "Phanotom of the Opera" should be 2
     Then the max party size of "Phanotom of the Opera" should be 10
+    Then the status of "Phantom of the Opera" should be "Open"
     Then I go to the activities page
     Then I should see "Phanotom of the Opera"
 

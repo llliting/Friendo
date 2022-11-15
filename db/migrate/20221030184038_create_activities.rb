@@ -9,7 +9,6 @@ class CreateActivities < ActiveRecord::Migration
       t.string :category
       t.datetime :date
       t.string :location
-
       t.timestamps null: false
     end
   end

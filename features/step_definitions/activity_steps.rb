@@ -64,3 +64,7 @@ end
 Then("the max party size of {string} should be {int}") do |string, int|
   expect(Activity.find_by_event_name(string).max_size == int)
 end
+
+Then /the status of "(.*)" should be "(.*)"/ do |name, status|
+  expect(Activity.find_by_event_name(name).status == status)
+end
