@@ -13,6 +13,21 @@ https://still-cliffs-71747.herokuapp.com
 - user authentication 
 - activity board 
 - activity creation/deletion/edition 
+- permission checking 
+- capacity checking 
+- join/leave activity 
+- open/close activity 
+- user profile
+
+## Progress since iter-1
+- permission checking 
+- capacity checking 
+- join/leave activity 
+- open/close activity 
+- user profile
+- empty check 
+- database improvement (e.g. added relationship relationship, added creator id for activities, etc)
+- bugs fixing
 
 ## Instructions for running the application 
 ```
