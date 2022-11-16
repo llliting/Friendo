@@ -39,6 +39,16 @@ Feature: create a new activity
     Then I go to the activities page
     Then I should see "Phanotom of the Opera"
 
+  Scenario: add event to existing activites leave some field empty
+    When I go to the new event page
+    And  I fill in "Name" with "Phanotom of the Opera"
+    And  I fill in "Location" with ""
+    And  I fill in "Current Party Size" with 2
+    And  I fill in "Max Party Size" with 10
+    And  I press "Save Changes"
+    Then I go to the activities page
+    Then I should not see "Phanotom of the Opera"
+
 
   Scenario: delete an event to
     When I go to the details page for "Halloween Parade"

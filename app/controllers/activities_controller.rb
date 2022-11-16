@@ -28,7 +28,7 @@ class ActivitiesController < ApplicationController
       def create
         begin
           @activity = Activity.create!(activity_params)
-          
+          @activity.update(creator_id: session[:user_id])
         rescue => exception
           flash[:notice] = "Some fields are empty, event cannot be created."
         else
@@ -36,7 +36,7 @@ class ActivitiesController < ApplicationController
 
         end
         #ActivityUserRelation.create!(session[:user_id], @activity.id)
-        @activity.update(creator_id: session[:user_id])
+        
         redirect_to activities_path
       end
     
