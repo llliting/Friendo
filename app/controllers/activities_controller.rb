@@ -85,7 +85,7 @@ class ActivitiesController < ApplicationController
       def participated(activity)
         return !ActivityUserRelation.where(user_id: session[:user_id], activity_id: activity.id).empty?
       end
-
+  23
       def force_index_redirect
         if !params.key?(:categories) || !params.key?(:sort_by)
           flash.keep

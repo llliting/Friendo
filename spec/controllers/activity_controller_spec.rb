@@ -12,6 +12,10 @@ describe ActivitiesController, type: :controller do
     {:user_name => 'tester2', :first_name => 'tfn2', :last_name => 'tln2', :password => '12345678'},
   ]
 
+  relations = [
+    {:user_id => 1, :activity_id=>1}
+  ]
+
 
 
 
@@ -70,6 +74,18 @@ describe ActivitiesController, type: :controller do
       expect(response).to have_http_status(:redirect)
     end
   end
+
+  describe 'get the correct organizor name' do
+
+    it 'should success' do
+      expect(ActivitiesController.new.send(:get_organizor_name,Activity.find_by(event_name: 'Halloween Night'))).to eq('tfn1 tln1')
+    end
+  end
+
+
+
+
+
 
 
 
