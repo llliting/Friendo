@@ -26,9 +26,16 @@ class ActivitiesController < ApplicationController
       end
     
       def create
-        @activity = Activity.create!(activity_params)
-        @activity.update(creator_id: session[:user_id])
-        flash[:notice] = "#{@activity.event_name} was successfully created."
+        
+        begin
+          @activity = Activity.create!(activity_params)
+          @activity.update(creator_id: session[:user_id])
+        rescue => exception
+          flash[:notice] = "Some fields are empty, event cannot be created."
+        else
+          flash[:notice] = "#{@activity.event_name} was successfully created."
+          
+        end
         #ActivityUserRelation.create!(session[:user_id], @activity.id)
         redirect_to activities_path
       end
@@ -44,10 +51,17 @@ class ActivitiesController < ApplicationController
       def update
         @activity = Activity.find params[:id]
         if can_modify(@activity)
-          @activity.update_attributes!(activity_params)
-          flash[:notice] = "#{@activity.event_name} was successfully updated."
+          begin 
+            @activity.update_attributes!(activity_params)
+          rescue => exception
+            flash[:notice] = "Some fields are empty, event cannot be updated."
+            redirect_to edit_activity_path(@activity)
+          else
+            flash[:notice] = "#{@activity.event_name} was successfully updated."
+            redirect_to activity_path(@activity)
+          end
         end
-        redirect_to activity_path(@activity)
+        
       end
     
       def destroy
