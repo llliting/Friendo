@@ -44,7 +44,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to root_path
         else
-            flash[:warning] = "Username is already taken."
+            flash[:warning] = "."
             redirect_to new_user_path
         end
     end
