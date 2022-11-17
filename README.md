@@ -7,7 +7,7 @@ Jingyi Wang (jw4204)
 Zhe Wang (zw2695)
 
 ## Heroku Link
-https://still-cliffs-71747.herokuapp.com
+https://friendo-4152.herokuapp.com/ 
 
 ## Features 
 - user authentication 
@@ -23,11 +23,14 @@ https://still-cliffs-71747.herokuapp.com
 - permission checking 
 - capacity checking 
 - join/leave activity 
-- open/close activity 
 - user profile
 - empty check 
 - database improvement (e.g. added relationship relationship, added creator id for activities, etc)
 - bugs fixing
+
+## Future works 
+- Organizers will be automatically participants 
+- Open/close status 
 
 ## Instructions for running the application 
 ```
