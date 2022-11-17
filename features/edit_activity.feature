@@ -25,7 +25,16 @@ Feature: Edit an existing activity
     When I go to the activity edit page for "Study Night"
     And  I fill in "Current Size" with "3"
     And  I press "Update Activity Info"
+    Then the current_size of "Study Night" should be 3
+
+  Scenario: Edit and leave some empty fields
+    When I go to the activity edit page for "Study Night"
+    And  I fill in "Current Size" with ""
+    And  I press "Update Activity Info"
+    Then the current_size of "Study Night" should be 1
+
 
   Scenario: Edit without permission
     When I go to the activity edit page for "Halloween Parade"
     Then I should be on the details page for "Halloween Parade"
+
