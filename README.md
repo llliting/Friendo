@@ -9,6 +9,13 @@ Zhe Wang (zw2695)
 ## Heroku Link
 https://friendo-4152.herokuapp.com/ 
 
+## Presentation Deck
+https://docs.google.com/presentation/d/1BQDb62p7EeTjYjY2jTV_yqt5U_lToqPbWfDUghgiByM/edit?usp=sharing
+
+## Video Link
+https://www.youtube.com/watch?v=ubF0crn-LOU
+
+
 ## Features 
 - user authentication 
 - activity board 
