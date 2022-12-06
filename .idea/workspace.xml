@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f25fa4de-3be2-411b-b3e9-ee1ac0df57db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.last_run.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/edit_activity.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/edit_activity.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/activity_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/activity_controller_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/relation_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/relation_controller_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,6 +204,7 @@
       <workItem from="1668357481100" duration="2519000" />
       <workItem from="1668450969374" duration="20977000" />
       <workItem from="1668627006831" duration="394000" />
+      <workItem from="1670276930470" duration="1768000" />
     </task>
     <servers />
   </component>
