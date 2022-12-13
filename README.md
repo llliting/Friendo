@@ -38,6 +38,13 @@ https://www.youtube.com/watch?v=ubF0crn-LOU
 ## Future works 
 - Organizers will be automatically participants 
 - Open/close status 
+- Follow and unfollow a person 
+- Activities from the following list 
+- Log out
+- Link to current participants 
+- Filter unavailable activities 
+- UI improvements 
+
 
 ## Instructions for running the application 
 ```

@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f25fa4de-3be2-411b-b3e9-ee1ac0df57db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/activities_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/activities_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/relations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/relations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/activities/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/activities/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +209,7 @@
       <workItem from="1668450969374" duration="20977000" />
       <workItem from="1668627006831" duration="394000" />
       <workItem from="1670276930470" duration="1768000" />
+      <workItem from="1670970930579" duration="1805000" />
     </task>
     <servers />
   </component>

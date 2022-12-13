@@ -43,7 +43,7 @@
           <%= link_to "#{activity.event_name}", activity_path(activity) %>
         </td>
         <td>
-          <%= get_organizor_name(activity) %>
+          <%= link_to "#{get_organizor_name(activity)}",  user_path(activity.creator_id) %>
         </td>
         <td>
           <%= activity.max_size %>
@@ -73,3 +73,4 @@
 </table>
 <%= link_to 'Add new activity', new_activity_path, :class => 'btn btn-primary' %>
 <%= link_to 'Go to User profile', user_path(session[:user_id]), :class => 'btn btn-primary' %>
+<%= link_to 'Log out', new_session_path, :class => 'btn btn-primary' %>

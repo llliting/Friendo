@@ -86,6 +86,14 @@ class ActivitiesController < ApplicationController
         return organizer
       end
 
+
+
+
+
+
+
+
+
       private
       def can_modify(activity)
         if activity.creator_id == session[:user_id]
