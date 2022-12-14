@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :activities
   resources :relations
+  resources :following
   # Example resource route with options:
   #   resources :products do
   #     member do
