@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221109213751) do
+ActiveRecord::Schema.define(version: 20221214205355) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "event_name"
@@ -24,11 +24,22 @@ ActiveRecord::Schema.define(version: 20221109213751) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "creator_id"
+    t.string   "status"
+    t.string   "open_status"
   end
 
   create_table "activity_user_relations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "title"
+    t.string   "rating"
+    t.text     "description"
+    t.datetime "release_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

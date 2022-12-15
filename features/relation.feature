@@ -6,9 +6,9 @@ Feature: join/leave an activity
   Background: activites in database
 
     Given the following activites exist:
-      | event_name      | creator_id        | location | current_size | max_size| date     |description          | category  |
-      | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""                   | Others    |
-      | Study Night     | 2                 | Butler   |   4          | 4       |2022-11-3 |"study night at lib" | Education |
+      | event_name      | creator_id        | location | current_size | max_size| date     |description          | category  | open_status |
+      | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""                   | Others    |  Open |
+      | Study Night     | 2                 | Butler   |   4          | 4       |2022-11-3 |"study night at lib" | Education | Open |
 
     Given the following users exist:
       | user_name    | first_name | last_name | password |

@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-activities = [{:event_name => 'Halloween Night', :creator_id => 1, :max_size => 10, :current_size =>10, :category => 'Entertainment', :date => '31-Oct-2022', :location => 'Columbia University'},
-{:event_name => 'Met Sunday', :creator_id => 2, :max_size => 4, :current_size =>1, :category => 'Arts', :date => '30-Oct-2022', :location=>'Met Museum'}
+activities = [{:event_name => 'Halloween Night', :creator_id => 1, :max_size => 10, :current_size =>10, :category => 'Entertainment', :date => '31-Oct-2022', :location => 'Columbia University', :open_status=>'Open'},
+{:event_name => 'Met Sunday', :creator_id => 2, :max_size => 4, :current_size =>1, :category => 'Arts', :date => '30-Oct-2022', :location=>'Met Museum', :open_status => 'Open'}
 ]
 users = [
 	{:user_name => 'tester', :first_name => 'first tester', :last_name => 'last tester', :password => 'tstpwd'},

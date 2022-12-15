@@ -4,6 +4,7 @@ class Activity < ActiveRecord::Base
 	validates :max_size, presence: true
 	validates :current_size, presence: true
 	validates :category, presence: true
+	validates :open_status, presence: true
 
     def self.all_categories
 		['Arts', 'Entertainment', 'Education', 'Sports', 'Outdoor', 'Others']

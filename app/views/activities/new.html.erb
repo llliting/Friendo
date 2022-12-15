@@ -7,6 +7,9 @@
   <%= label :activity, :category, 'Category', :class => 'col-form-label'  %>
   <%= select :activity, :category, ['Arts', 'Entertainment', 'Education', 'Sports', 'Outdoor', 'Others'], {}, {:class => 'form-control col-1'} %>
 
+  <%= label :activity, :open_status, 'Status', :class => 'col-form-label'  %>
+  <%= select :activity, :open_status, ['Open', 'Close'], {}, {:class => 'form-control col-1'} %>
+
   <%= label :activity, :location, 'Location', :class => 'col-form-label' %>
   <%= text_field :activity, :location, :class => 'form-control' %>
 
@@ -21,7 +24,6 @@
 
   <%= label :activity, :date, 'Date', :class => 'col-form-label'  %>
   <%= date_select :activity, :date, {}, :class => 'form-control col-2 d-inline' %>
-  
   <br/>
   <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', activities_path, :class => 'btn btn-secondary' %>
