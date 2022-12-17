@@ -13,7 +13,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find session[:user_id]
+        @session_id = session[:user_id]
+        @id = params[:id] 
+        @user = User.find(@id) 
         @relations = ActivityUserRelation.where(user_id: session[:user_id])
         @activities = Array.new
         @relations.each do |relation|

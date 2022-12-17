@@ -9,10 +9,12 @@ activities = [{:event_name => 'Halloween Night', :creator_id => 1, :max_size => 
 {:event_name => 'Met Sunday', :creator_id => 2, :max_size => 4, :current_size =>1, :category => 'Arts', :date => '30-Oct-2022', :location=>'Met Museum'}
 ]
 users = [
-	{:user_name => 'tester', :first_name => 'first tester', :last_name => 'last tester', :password => 'tstpwd'},
+	{:user_name => 'tester1', :first_name => 'first tester1', :last_name => 'last tester1', :password => 'tstpwd1'},
 	{:user_name => 'tester2', :first_name => 'first tester2', :last_name => 'last tester2', :password => 'tstpwd2'}
 ]
-
+follows = [
+	{:follower => 1, :followee => 2}
+]
 activities.each do |activity|
   Activity.create!(activity)
 end
