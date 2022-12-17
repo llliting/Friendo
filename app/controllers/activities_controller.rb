@@ -10,10 +10,12 @@ class ActivitiesController < ApplicationController
 
       def index
         @all_categories = Activity.all_categories
-        @activities = Activity.with_categories(category_list, sort_by)
+        @activities = Activity.with_categories(category_list, sort_by, status)
         @categories_hash = categories_hash
         @sort_by = sort_by
+        @open_status = status
         # remember the correct settings for next time
+        session['open_status'] = @open_status
         session['categories'] = category_list
         session['sort_by'] = @sort_by
       end
@@ -108,15 +110,19 @@ class ActivitiesController < ApplicationController
       end
   23
       def force_index_redirect
-        if !params.key?(:categories) || !params.key?(:sort_by)
+        if !params.key?(:categories) || !params.key?(:sort_by) || !params.key?(:open_status)
           flash.keep
-          url = activities_path(sort_by: sort_by, categories: categories_hash)
+          url = activities_path(sort_by: sort_by, categories: categories_hash, open_status: status)
           redirect_to url
         end
       end
 
       def category_list
         params[:categories]&.keys || session[:categories] || Activity.all_categories
+      end
+
+      def status
+        params[:open_status] || session[:open_status] || 'Open'
       end
 
       def categories_hash

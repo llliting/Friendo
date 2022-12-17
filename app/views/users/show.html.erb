@@ -1,6 +1,11 @@
 <!--  app/views/users/show.html.erb -->
 <h2><em><%= @user.user_name %></em></h2>
 
+<div class="row">
+  <%= link_to 'Follow', root_path, :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Unfollow', root_path, :class => 'btn btn-primary col-2' %>
+</div>
+
 <ul id="details">
   <li>
     First name:
@@ -21,10 +26,7 @@
 
 </ul>
 
-<div class="row">
-  <%= link_to 'Follow', root_path, :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Unfollow', root_path, :class => 'btn btn-primary col-2' %>
-</div>
+
 
 <div class="row">
   <%= link_to 'Delete', root_path, 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
