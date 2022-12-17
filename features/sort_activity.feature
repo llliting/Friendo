@@ -7,9 +7,9 @@ Feature: sort activities
   Background: activites in database
 
     Given the following activites exist:
-      | event_name      | creator_id        | location | current_size | max_size| date     |description | category|
-      | Study Night     | 1                 | Butler   |   1          | 4       |2022-11-3 |"study night at lib"| Education|
-      | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""          |Others  |
+      | event_name      | creator_id        | location | current_size | max_size| date     |description | category| open_status |
+      | Study Night     | 1                 | Butler   |   1          | 4       |2022-11-3 |"study night at lib"| Education| Open |
+      | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""          |Others  | Open|
 
 
     Given the following users exist:

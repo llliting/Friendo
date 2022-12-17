@@ -3,9 +3,9 @@ require 'rails_helper'
 describe UsersController, type: :controller do
 
   activities = [
-    {:event_name => 'Halloween Night', :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022'},
-    {:event_name => 'Met Sunday', :creator_id => 1, :max_size => 4, :current_size =>4, :category => 'Arts', :date => '30-Oct-2022'},
-    {:event_name => 'Study Monday', :creator_id => 2, :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2022'},
+    {:event_name => 'Halloween Night', :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022', :open_status => "Open"},
+    {:event_name => 'Met Sunday', :creator_id => 1, :max_size => 4, :current_size =>4, :category => 'Arts', :date => '30-Oct-2022', :open_status => "Open"},
+    {:event_name => 'Study Monday', :creator_id => 2, :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2022', :open_status => "Open"},
   ]
 
   users = [

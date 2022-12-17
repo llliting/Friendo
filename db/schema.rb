@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20221215004715) do
+=======
+ActiveRecord::Schema.define(version: 20221214205355) do
+>>>>>>> 8fb1b587cebc049a10783ee7c4994044e61f86c7
 
   create_table "activities", force: :cascade do |t|
     t.string   "event_name"
@@ -24,6 +28,8 @@ ActiveRecord::Schema.define(version: 20221215004715) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "creator_id"
+    t.string   "status"
+    t.string   "open_status"
   end
 
   create_table "activity_user_relations", force: :cascade do |t|
@@ -31,9 +37,19 @@ ActiveRecord::Schema.define(version: 20221215004715) do
     t.integer "activity_id"
   end
 
+<<<<<<< HEAD
   create_table "follows", force: :cascade do |t|
     t.integer "follower"
     t.integer "followee"
+=======
+  create_table "movies", force: :cascade do |t|
+    t.string   "title"
+    t.string   "rating"
+    t.text     "description"
+    t.datetime "release_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> 8fb1b587cebc049a10783ee7c4994044e61f86c7
   end
 
   create_table "users", force: :cascade do |t|

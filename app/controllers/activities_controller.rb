@@ -76,7 +76,7 @@ class ActivitiesController < ApplicationController
       # Making "internal" methods private is not required, but is a common practice.
       # This helps make clear which methods respond to requests, and which ones do not.
       def activity_params
-        params.require(:activity).permit(:event_name, :location, :description, :date, :max_size, :current_size, :creator_id, :category)
+        params.require(:activity).permit(:event_name, :location, :description, :date, :max_size, :current_size, :creator_id, :category, :open_status)
       end 
 
       private

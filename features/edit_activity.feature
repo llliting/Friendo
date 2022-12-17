@@ -7,9 +7,9 @@ Feature: Edit an existing activity
   Background: activites in database
 
     Given the following activites exist:
-      | event_name      | creator_id        | location | current_size | max_size| date     |description | category|
-      | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""          |others  |
-      | Study Night     | 2                 | Butler   |   1          | 4       |2022-11-3 |"study night at lib"| education|
+      | event_name      | creator_id        | location | current_size | max_size| date     |description | category| open_status |
+      | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""          |others  | Open |
+      | Study Night     | 2                 | Butler   |   1          | 4       |2022-11-3 |"study night at lib"| education| Open |
 
     Given the following users exist:
       | user_name    | first_name | last_name | password |
