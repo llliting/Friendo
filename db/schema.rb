@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20221215004715) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "creator_id"
-    t.string   "status"
     t.string   "open_status"
   end
 

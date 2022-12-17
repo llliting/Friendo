@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :user_authenticate, only: [:show, :edit, :update, :destroy]
+    helper_method :followed
 
     def index
         if session[:user_id]
@@ -14,9 +15,9 @@ class UsersController < ApplicationController
 
     def show
         @session_id = session[:user_id]
-        @id = params[:id] 
+        @id = params[:id].to_i
         @user = User.find(@id) 
-        @relations = ActivityUserRelation.where(user_id: session[:user_id])
+        @relations = ActivityUserRelation.where(user_id: @session_id)
         @activities = Array.new
         @relations.each do |relation|
             @activities.push Activity.find(relation[:activity_id])
@@ -76,6 +77,11 @@ class UsersController < ApplicationController
             redirect_to new_session_path
             return
         end
+    end
+
+    private
+    def followed(follower_id, followee_id)
+      return !Follow.where(follower: follower_id, followee: followee_id).empty?
     end
 end
       
