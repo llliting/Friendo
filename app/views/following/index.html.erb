@@ -10,8 +10,13 @@
   <thead>
   <tr>
     <th>Event Name</th>
-    <th>Organizer</th>
-    <th>Max Capcity</th>
+    <th>
+      <%= link_to 'Organizer',
+                  following_index_path({sort_by: 'creator_id'}),
+                  id: 'organizer_header', class: ('bg-warning hilite' if @sort_by == 'creator_id') %>
+    </th>
+<!--    <th>Organizer</th>-->
+    <th>Max Capacity</th>
     <th>Current Number of Participants</th>
     <th>Category</th>
     <th>
@@ -20,6 +25,7 @@
                   id: 'date_header', class: ('bg-warning hilite' if @sort_by == 'date') %>
     </th>
     <th>Location</th>
+    <th>Status</th>
 
 
   </tr>
@@ -29,9 +35,6 @@
     <tr>
       <td>
         <%= link_to "#{activity.event_name}", activity_path(activity) %>
-
-
-
       </td>
       <td>
         <%=  link_to "#{User.find(activity.creator_id).user_name}", user_path(activity.creator_id) %>
@@ -51,6 +54,9 @@
       </td>
       <td>
         <%= activity.location %>
+      </td>
+      <td>
+        <%= activity.open_status %>
       </td>
     </tr>
   <% end %>
