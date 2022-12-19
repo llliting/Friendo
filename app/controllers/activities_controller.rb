@@ -5,25 +5,32 @@ class ActivitiesController < ApplicationController
 
       def show
         id = params[:id] 
-        @activity = Activity.find(id) 
+        @activity = Activity.find(id)
       end
 
       def index
-        @all_categories = Activity.all_categories
-        @activities_with_category = Activity.with_categories(category_list, sort_by)
-        @activities = []
-        @activities_with_category.each do |a|
-          puts a.open_status
-          if a.open_status == status
-            @activities.append(a)
+        @activities = Activity.all
+        for a in @activities do
+          if a[:date] < Date.today
+            a.update(open_status: 'Close')
           end
         end
 
+        @event_status = params[:event_status]
+        @all_categories = Activity.all_categories
+        @activities_with_category = Activity.with_categories(category_list, sort_by)
+        if @event_status == 'Open'
+          @activities = open_activities(@activities_with_category)
+        else
+          @activities = @activities_with_category
+        end
+
+
+
         @categories_hash = categories_hash
         @sort_by = sort_by
-        @open_status = status
-        # remember the correct settings for next time
-        session['open_status'] = @open_status
+
+
         session['categories'] = category_list
         session['sort_by'] = @sort_by
       end
@@ -118,9 +125,9 @@ class ActivitiesController < ApplicationController
       end
 
       def force_index_redirect
-        if !params.key?(:categories) || !params.key?(:sort_by) || !params.key?(:open_status)
+        if !params.key?(:categories) || !params.key?(:sort_by)
           flash.keep
-          url = activities_path(sort_by: sort_by, categories: categories_hash, open_status: status)
+          url = activities_path(sort_by: sort_by, categories: categories_hash)
           redirect_to url
         end
       end
@@ -128,6 +135,7 @@ class ActivitiesController < ApplicationController
       def category_list
         params[:categories]&.keys || session[:categories] || Activity.all_categories
       end
+
 
       def categories_hash
         Hash[category_list.collect { |item| [item, "1"] }]
@@ -137,9 +145,11 @@ class ActivitiesController < ApplicationController
         params[:sort_by] || session[:sort_by] || 'id'
       end
 
-      def status
-        params[:open_status] || session[:open_status] || 'Open'
+      def open_activities(activities)
+        activities.where(open_status: 'Open')
       end
+
+
 
       def user_authenticate
         if session[:user_id] == nil

@@ -15,7 +15,6 @@
                   following_index_path({sort_by: 'creator_id'}),
                   id: 'organizer_header', class: ('bg-warning hilite' if @sort_by == 'creator_id') %>
     </th>
-<!--    <th>Organizer</th>-->
     <th>Max Capacity</th>
     <th>Current Number of Participants</th>
     <th>Category</th>
@@ -38,7 +37,6 @@
       </td>
       <td>
         <%=  link_to "#{User.find(activity.creator_id).user_name}", user_path(activity.creator_id) %>
-        <%#= link_to "#{get_organizor_name(activity)}",  user_path(activity.creator_id) %>
       </td>
       <td>
         <%= activity.max_size %>

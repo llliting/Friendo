@@ -11,6 +11,12 @@ class Activity < ActiveRecord::Base
 	end
 
 	def self.with_categories(category_list, sort_by)
-		Activity.where("category in(?)", category_list).order sort_by 
+		if sort_by == 'open_status'
+			# Activity.where("category in(?)", category_list).where(open_status: 'Open')
+			(Activity.where("category in(?)", category_list).order sort_by).reverse()
+		else
+			Activity.where("category in(?)", category_list).order sort_by
+		end
+
 	end
 end

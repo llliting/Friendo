@@ -1,5 +1,10 @@
 class RelationsController < ApplicationController
     def create
+        if Activity.find(params[:activity_id])[:open_status] == 'Close'
+            flash[:notice] = "You cannot join a closed activity."
+            redirect_to activities_path
+            return
+        end
         if ActivityUserRelation.where(user_id: params[:user_id], activity_id: params[:activity_id]).empty?
 
             @activity = Activity.find(params[:activity_id])
@@ -14,6 +19,11 @@ class RelationsController < ApplicationController
     end
 
     def destroy
+        if Activity.find(params[:activity_id])[:open_status] == 'Close'
+            flash[:notice] = "You cannot leave a closed activity."
+            redirect_to activities_path
+            return
+        end
         ActivityUserRelation.where(user_id: params[:user_id], activity_id: params[:activity_id]).destroy_all
         @activity = Activity.find(params[:activity_id])
         if @activity[:current_size] > 1

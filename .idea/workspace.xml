@@ -7,11 +7,10 @@
     <list default="true" id="f25fa4de-3be2-411b-b3e9-ee1ac0df57db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/activities_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/activities_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/following_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/following_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/relations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/relations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/activity.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/activity.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/activities/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/activities/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/following/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/following/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,21 +42,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/litinghuang/Desktop/Friendo",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ruby.rails.projectView.checked": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/litinghuang/Desktop/Friendo&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RubyModuleManagerSettings">
     <option name="blackListedRootsPaths">
       <list>

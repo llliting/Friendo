@@ -10,8 +10,10 @@
 
   <div class="form-check  form-check-inline">
     <%= label_tag "active activities", "active activities", class: 'form-check-label' %>
-    <%= check_box_tag "active activities", '1', @open_status, class: 'form-check-input' %>
+    <%= check_box_tag "event_status", 'Open', @open_status, class: 'form-check-input' %>
   </div>
+
+
 
 
   Include:
@@ -90,5 +92,4 @@
 </table>
 <%= link_to 'Add new activity', new_activity_path, :class => 'btn btn-primary' %>
 <%= link_to 'Go to User profile', user_path(session[:user_id]), :class => 'btn btn-primary' %>
-<%= link_to 'Log out', new_session_path, :class => 'btn btn-primary' %>
 <%= link_to 'My Followings', following_index_path, :class => 'btn btn-primary' %>
