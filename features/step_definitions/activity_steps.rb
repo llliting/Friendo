@@ -27,6 +27,8 @@ end
 
 
 
+
+
 Then /I should see all the activities/ do
   # Make sure that all the movies in the app are visible in the table
   Activity.all.each do |activity|

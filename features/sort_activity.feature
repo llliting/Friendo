@@ -10,6 +10,7 @@ Feature: sort activities
       | event_name      | creator_id        | location | current_size | max_size| date     |description | category| open_status |
       | Study Night     | 1                 | Butler   |   1          | 4       |2022-11-3 |"study night at lib"| Education| Open |
       | Halloween Parade| 1                 | 6th ave  |   2          | 10      |2022-10-31|""          |Others  | Open|
+      | World Cup       |1                 | Mel's    |  3           | 5       |2022-12-19|""                   |Entertainment|Close|
 
 
     Given the following users exist:
@@ -36,3 +37,8 @@ Feature: sort activities
     Then I uncheck the following categories: Arts, Entertainment, Education, Sports, Outdoor, Others
     And I press "Refresh"
     Then I should see all the activities
+
+  Scenario: to see only open events
+    Then I check "event_status"
+    And I press "Refresh"
+    Then I should not see "World Cup"

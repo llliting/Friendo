@@ -57,3 +57,5 @@ Feature: create a new activity
     Then I should not see "Halloween Parade"
 
 
+
+

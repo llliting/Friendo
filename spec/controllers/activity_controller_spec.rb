@@ -2,9 +2,11 @@ require 'rails_helper'
 
 describe ActivitiesController, type: :controller do
   activities = [
-    {:event_name => 'Halloween Night', :location => "Butler", :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022', :open_status => "Open"},
-    {:event_name => 'Met Sunday', :location => "Central Park", :creator_id => 1, :max_size => 4, :current_size =>4, :category => 'Arts', :date => '30-Oct-2022', :open_status => "Open"},
-    {:event_name => 'Study Monday', :location => "Uris", :creator_id => 2, :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2022', :open_status => "Open"},
+    {:event_name => 'Halloween Night', :location => "Butler", :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2023', :open_status => "Open"},
+    {:event_name => 'Met Sunday', :location => "Central Park", :creator_id => 1, :max_size => 4, :current_size =>4, :category => 'Arts', :date => '30-Oct-2023', :open_status => "Open"},
+    {:event_name => 'Study Monday', :location => "Uris", :creator_id => 2, :location => 'butler library', :max_size => 6, :current_size =>2, :category => 'Education', :date => '2-Nov-2023', :open_status => "Open"},
+    {:event_name => 'Halloween Night 2022', :location => "Butler", :creator_id => 1, :max_size => 10, :current_size =>3, :category => 'Entertainment', :date => '31-Oct-2022', :open_status => "Open"},
+
   ]
 
   users = [
@@ -61,8 +63,15 @@ describe ActivitiesController, type: :controller do
 
   describe 'show the activities board' do
     it 'should success' do
-      get :index, :sort_by=>'Date', :categories => {'Entertainment': 1}
+      get :index, :sort_by=>'Date', :categories => {'Entertainment': 1}, :event_status => 'Open'
       expect(assigns(:activities)).to eq([Activity.find_by(event_name: 'Halloween Night')])
+      expect(response).to have_http_status(:success)
+    end
+  end
+  describe 'show the activities board' do
+    it 'should success' do
+      get :index, :sort_by=>'Date', :categories => {'Arts': 1}
+      expect(assigns(:activities)).to eq([Activity.find_by(event_name: 'Met Sunday')])
       expect(response).to have_http_status(:success)
     end
   end
