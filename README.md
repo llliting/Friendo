@@ -7,7 +7,7 @@ Jingyi Wang (jw4204)
 Zhe Wang (zw2695)
 
 ## Heroku Link
-https://friendo-4152.herokuapp.com/ 
+https://friendofriendo.herokuapp.com/
 
 ## Presentation Deck
 https://docs.google.com/presentation/d/1BQDb62p7EeTjYjY2jTV_yqt5U_lToqPbWfDUghgiByM/edit?usp=sharing
@@ -25,25 +25,13 @@ https://www.youtube.com/watch?v=ubF0crn-LOU
 - join/leave activity 
 - open/close activity 
 - user profile
-
-## Progress since iter-1
 - permission checking 
 - capacity checking 
 - join/leave activity 
 - user profile
 - empty check 
-- database improvement (e.g. added relationship relationship, added creator id for activities, etc)
-- bugs fixing
-
-## Future works 
-- Organizers will be automatically participants 
-- Open/close status 
 - Follow and unfollow a person 
-- Activities from the following list 
 - Log out
-- Link to current participants 
-- Filter unavailable activities 
-- UI improvements 
 
 
 ## Instructions for running the application 
